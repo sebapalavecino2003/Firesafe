@@ -1,0 +1,61 @@
+version: "3.9"
+
+services:
+
+  auth-service:
+    build: ./backend/auth-service
+    container_name: auth-service
+    ports:
+      - "8000:8000"
+    networks:
+      - firesafe-net
+
+  device-service:
+    build: ./backend/device-service
+    container_name: device-service
+    ports:
+      - "8001:8000"
+    networks:
+      - firesafe-net
+
+  alert-service:
+    build: ./backend/alert-service
+    container_name: alert-service
+    ports:
+      - "8002:8000"
+    networks:
+      - firesafe-net
+
+  notification-service:
+    build: ./backend/notification-service
+    container_name: notification-service
+    ports:
+      - "8003:8000"
+    networks:
+      - firesafe-net
+
+  data-service:
+    build: ./backend/data-service
+    container_name: data-service
+    ports:
+      - "8004:8000"
+    networks:
+      - firesafe-net
+
+  api-gateway:
+    build: ./backend/api-gateway
+    container_name: api-gateway
+    ports:
+      - "8080:8000"
+    depends_on:
+      - auth-service
+      - device-service
+      - alert-service
+      - notification-service
+      - data-service
+    networks:
+      - firesafe-net
+
+networks:
+  firesafe-net:
+    driver: bridge
