@@ -1,27 +1,24 @@
-# FireSafe Platform 🔥
+# FireSafe 🔥
 
-Plataforma de monitoreo y prevencion inteligente basada en IoT.
-
-## Vision
-Detectar riesgos de incendio y gases de forma temprana
-mediante sensores IoT, procesamiento backend y alertas
-en tiempo real.
+FireSafe es un sistema de monitoreo y prevención de incendios basado en una
+arquitectura de microservicios, diseñado con FastAPI, Docker y JWT.
 
 ## Arquitectura
-- Micro-servicios
-- Micro-frontends
-- Arquitectura Viva (C4 + ADRs)
+- API Gateway como punto único de entrada
+- Microservicios independientes
+- Autenticación centralizada con JWT
+- Orquestación con Docker Compose
 
-## Componentes
-- ESP32 + MQTT
-- Backend FastAPI
-- Frontend React
-- Broker de eventos
-- Bases de datos por servicio
+## Servicios
+- api-gateway
+- auth-service
+- device-service
+- alert-service
+- data-service
+- notification-service
 
-## Documentacion
-Toda la arquitectura y decisiones viven en `/architecture`.
+## Ejecución local
 
-## Estado
-Arquitectura definida.
-Implementacion en progreso.
+```bash
+docker compose build
+docker compose up
