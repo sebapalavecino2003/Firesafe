@@ -24,7 +24,7 @@ async def fake_validar_token(
     return True
 
 # ---------- TEST ----------
-
+########
 def test_devices_con_token(mocker):
     # Mock del proxy HTTP
     mocker.patch(
