@@ -5,4 +5,3 @@ class Alerta:
         self.dispositivo_id = dispositivo_id
         self.severidad = severidad
         self.mensaje = mensaje
-        self.confirmada = False

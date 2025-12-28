@@ -1,14 +1,12 @@
 from fastapi import APIRouter
-from app.api.dtos import DispositivoRequest
-from app.application.registrar_dispositivo import CasoUsoRegistrarDispositivo
+from typing import List
 from app.application.listar_dispositivos import CasoUsoListarDispositivos
-
+from app.api.dtos import DispositivoRequest
 router = APIRouter()
 
-@router.post("/devices")
-def registrar(dispositivo: DispositivoRequest):
-    return CasoUsoRegistrarDispositivo().ejecutar(dispositivo)
-
-@router.get("/devices")
+@router.get(
+    "/devices",
+    response_model=List[DispositivoRequest]
+)
 def listar():
     return CasoUsoListarDispositivos().ejecutar()

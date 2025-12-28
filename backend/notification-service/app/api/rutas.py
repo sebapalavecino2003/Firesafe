@@ -4,5 +4,5 @@ router = APIRouter()
 
 @router.post("/test-email")
 def test_email():
-    print("Email de prueba enviado")
+    print("Email enviado")
     return {"status": "ok"}
